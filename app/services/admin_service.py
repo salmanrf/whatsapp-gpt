@@ -15,11 +15,7 @@ async def getCurrentAdmin(admin_id: str):
 
 
 async def adminLogin(loginSchema: AdminLoginSchema):
-    print("loginDto", loginSchema)
-
     adminDict = await getAdmin({"username": loginSchema.username})
-
-    print("Found Admin", adminDict)
 
     if not adminDict:
         raise HTTPException(
